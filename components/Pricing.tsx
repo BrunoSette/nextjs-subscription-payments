@@ -31,6 +31,161 @@ interface Props {
 
 type BillingInterval = 'lifetime' | 'year' | 'month';
 
+const features = [
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+        />
+      </svg>
+    ),
+    title: 'AI-Powered Optimization',
+    desc: 'GPT AI perfects your resume - grammar checks to stylistic improvements.'
+  },
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+        />
+      </svg>
+    ),
+    title: 'Personalized Suggestions',
+    desc: 'Receive unique recommendations based on your profile and career goals.'
+  },
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+        />
+      </svg>
+    ),
+    title: 'Industry-Specific Keyword Enhancement',
+    desc: 'Optimize your resume with relevant keywords for ATS compatibility.'
+  },
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3"
+        />
+      </svg>
+    ),
+    title: 'Dynamic Formatting Assistance',
+    desc: 'Choose from pro templates and let AI perfect the layout.'
+  },
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+        />
+      </svg>
+    ),
+    title: 'Job Description Matching',
+    desc: 'Match your resume with job descriptions to maximize application relevance.'
+  },
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
+        />
+      </svg>
+    ),
+    title: 'Cover Letter Assistance',
+    desc: 'Enhance your applications with powerful, AI-optimized cover letters.'
+  }
+];
+
+const faqsList = [
+  {
+    q: 'How does the AI-powered resume optimizer work?',
+    a: 'Our resume optimizer leverages the advanced GPT AI model to analyze and enhance your resume. It suggests improvements for grammar, style, keywords, and formatting to help your resume stand out to recruiters and applicant tracking systems.'
+  },
+  {
+    q: 'Will my information be kept confidential?',
+    a: 'Absolutely. We respect your privacy and have strict measures in place to keep your personal information secure. We will never share your data without your explicit consent.'
+  },
+  {
+    q: 'How can AI help to improve my resume?',
+    a: 'The AI scans your resume and provides insights based on industry standards and hiring trends. It offers suggestions for improvements, highlights skills that should be emphasized, and helps tailor your resume to specific job descriptions.'
+  },
+  {
+    q: 'How many resumes can I optimize with your service?',
+    a: 'The number of resumes you can optimize depends on the plan you subscribe to. Please refer to our Pricing section for more information.'
+  },
+  ,
+  {
+    q: 'Can I cancel my subscription at any time?',
+    a: 'Yes, you can cancel your subscription anytime through your account settings. If you need any assistance, please feel free to contact our support team.'
+  },
+  {
+    q: 'Do you offer support for cover letters?',
+    a: 'Yes, our platform also provides support for optimizing your cover letters along with your resumes.'
+  },
+  {
+    q: 'How can I contact customer support?',
+    a: 'You can reach out to us through the Contact Us section of the website. Our dedicated team will be more than happy to assist you.'
+  }
+];
+
 export default function Pricing({
   session,
   user,
@@ -96,6 +251,34 @@ export default function Pricing({
 
   if (products.length === 1)
     return (
+      <>
+       <section
+        className="py-28"
+        style={{
+          background:
+            'linear-gradient(152.92deg, rgba(240, 248, 255, 0.9) 0%, rgba(255, 255, 255, 1) 100%)'
+        }}
+      >
+        <div className="max-w-screen-xl mx-auto px-4 md:text-center md:px-8">
+          <div className="max-w-xl space-y-3 md:mx-auto">
+            <h3 className="text-cyan-600 font-semibold">Upgrade Your Job</h3>
+            <p className="text-gray-800 text-4xl font-extrabold text-black sm:text-center sm:text-6xl">
+              Welcome to Your AI Resume Optimizer
+            </p>
+            <p className="text-gray-600">
+              Unleash Your Full Potential with Tailored AI Resume Optimization
+            </p>
+          </div>
+          <div className="mt-4">
+            <a
+              href="#pricing"
+              className="inline-block py-2 px-4 text-white font-medium bg-gray-800 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-lg shadow-md hover:shadow-none"
+            >
+              Get started
+            </a>
+          </div>
+        </div>
+      </section>
       <section className="bg-black">
         <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col sm:align-center">
@@ -160,7 +343,7 @@ export default function Pricing({
           <LogoCloud />
         </div>
       </section>
-    );
+  </>  );
 
   return (
     <section className="bg-black">

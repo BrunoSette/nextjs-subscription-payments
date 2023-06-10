@@ -11,9 +11,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans]
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        calibre: ['Calibre', 'sans-serif']
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/forms')]
 };
