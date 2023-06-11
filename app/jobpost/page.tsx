@@ -1,13 +1,14 @@
-"use client"
+'use client';
 
-import React, { FormEvent, ChangeEvent, useState } from 'react';
-// import { GetServerSidePropsContext } from 'next';
-import { useRouter } from 'next/router';
-import Notification from '@/components/ui/Notification/Notification';
 import Menu from '@/components/ui/Menu/';
+import Notification from '@/components/ui/Notification/Notification';
 // import { useResume } from '@/contexts/ResumeContext';
 // import { withAuth } from '@/utils/auth';
 import { StepStatus } from '@/types';
+// import { GetServerSidePropsContext } from 'next';
+import { useRouter } from 'next/navigation';
+import React, { FormEvent, ChangeEvent, useState } from 'react';
+
 // import { useUser } from '@/utils/useUser';
 // import { getMaxResumeCreationsByPlan } from '@/utils/plans';
 
@@ -16,15 +17,15 @@ import { StepStatus } from '@/types';
 // };
 
 export default function JobPost() {
-  // const router = useRouter();
+  const router = useRouter();
   const [show, setShow] = useState(false);
-//   const { saveJobPost, createResume, jobPost } = useResume();
-//   const { userDetails, subscription } = useUser();
+  //   const { saveJobPost, createResume, jobPost } = useResume();
+  //   const { userDetails, subscription } = useUser();
   const [inputValue, setInputValue] = React.useState<string>('');
 
-//   const planName = subscription?.prices?.products?.name || 'Free';
-//   const maxResumeCreations = getMaxResumeCreationsByPlan(planName);
-//   const userCreatedResumeCount = userDetails?.resume_created_count || 0;
+  //   const planName = subscription?.prices?.products?.name || 'Free';
+  //   const maxResumeCreations = getMaxResumeCreationsByPlan(planName);
+  //   const userCreatedResumeCount = userDetails?.resume_created_count || 0;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -38,28 +39,28 @@ export default function JobPost() {
     setShow(false);
   };
 
-//   const handlePost = (): void => {
-//     if (inputValue.trim() === '') {
-//       setShow(true);
-//     } else {
-//       if (jobPost.jobPost !== inputValue) {
-//         saveJobPost({ jobPost: inputValue });
-//       }
+  //   const handlePost = (): void => {
+  //     if (inputValue.trim() === '') {
+  //       setShow(true);
+  //     } else {
+  //       if (jobPost.jobPost !== inputValue) {
+  //         saveJobPost({ jobPost: inputValue });
+  //       }
 
-//       if (
-//         maxResumeCreations > userCreatedResumeCount &&
-//         jobPost.jobPost !== inputValue
-//       ) {
-//         userDetails && createResume(userDetails.id);
-//       }
+  //       if (
+  //         maxResumeCreations > userCreatedResumeCount &&
+  //         jobPost.jobPost !== inputValue
+  //       ) {
+  //         userDetails && createResume(userDetails.id);
+  //       }
 
-//       router.push('/profile');
-//     }
-//   };
+  //       router.push('/profile');
+  //     }
+  //   };
 
-//   React.useEffect(() => {
-//     setInputValue(jobPost.jobPost);
-//   }, [jobPost]);
+  //   React.useEffect(() => {
+  //     setInputValue(jobPost.jobPost);
+  //   }, [jobPost]);
 
   const stepStatuses: { [id: string]: StepStatus } = {
     '01': 'complete',

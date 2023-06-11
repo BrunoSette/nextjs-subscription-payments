@@ -93,7 +93,7 @@ export interface ValidationError {
   message?: string;
 }
 
-
+export type BillingInterval = 'lifetime' | 'year' | 'month';
 
 export interface JSONResume {
   firstStep: { profile: string[] };
@@ -185,3 +185,13 @@ export interface IJobPost {
 }
 
 export type StepStatus = 'current' | 'upcoming' | 'complete';
+
+export interface ProductWithPrices extends Product {
+  prices: Price[];
+}
+export interface PriceWithProduct extends Price {
+  products: Product | null;
+}
+export interface SubscriptionWithProduct extends Subscription {
+  prices: PriceWithProduct | null;
+}

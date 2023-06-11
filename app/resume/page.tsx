@@ -1,13 +1,5 @@
-'use client'
+'use client';
 
-import React, { FormEvent, ChangeEvent, useState } from 'react';
-// import { GetServerSidePropsContext } from 'next';
-import { useRouter } from 'next/navigation';
-import Notification from '@/components/ui/Notification/Notification';
-import Menu from '@/components/ui/Menu/';
-// import { useResume } from '@/contexts/ResumeContext';
-// import { withAuth } from '@/utils/auth';
-import { StepStatus } from '@/types';
 // import { useUser } from '@/utils/useUser';
 // import { getMaxResumeCreationsByPlan } from '@/utils/plans';
 import {
@@ -15,7 +7,14 @@ import {
   getUserDetails,
   getSubscription
 } from '@/app/supabase-server';
-
+import Menu from '@/components/ui/Menu/';
+import Notification from '@/components/ui/Notification/Notification';
+// import { useResume } from '@/contexts/ResumeContext';
+// import { withAuth } from '@/utils/auth';
+import { StepStatus } from '@/types';
+// import { GetServerSidePropsContext } from 'next';
+import { useRouter } from 'next/navigation';
+import React, { FormEvent, ChangeEvent, useState } from 'react';
 
 // export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 //   return await withAuth(ctx);
@@ -23,14 +22,14 @@ import {
 
 export default function Resume() {
   const router = useRouter();
-//   const { createResume, saveOldResume, oldResume } = useResume();
+  //   const { createResume, saveOldResume, oldResume } = useResume();
   const [show, setShow] = useState(false);
-//   const { userDetails, subscription } = useUser();
+  //   const { userDetails, subscription } = useUser();
   const [inputValue, setInputValue] = React.useState<string>('');
 
-//   const planName = subscription?.prices?.products?.name || 'Free';
-//   const maxResumeCreations = getMaxResumeCreationsByPlan(planName);
-//   const userCreatedResumeCount = userDetails?.resume_created_count || 0;
+  //   const planName = subscription?.prices?.products?.name || 'Free';
+  //   const maxResumeCreations = getMaxResumeCreationsByPlan(planName);
+  //   const userCreatedResumeCount = userDetails?.resume_created_count || 0;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -44,32 +43,32 @@ export default function Resume() {
     setShow(false);
   };
 
-//   const handlePost = (): void => {
-//     if (inputValue.trim() === '') {
-//       setShow(true);
-//     } else {
-//       if (oldResume !== inputValue) {
-//         saveOldResume(inputValue);
-//       }
+  //   const handlePost = (): void => {
+  //     if (inputValue.trim() === '') {
+  //       setShow(true);
+  //     } else {
+  //       if (oldResume !== inputValue) {
+  //         saveOldResume(inputValue);
+  //       }
 
-//       if (
-//         maxResumeCreations > userCreatedResumeCount &&
-//         oldResume !== inputValue
-//       ) {
-//         userDetails && createResume(userDetails.id);
-//       }
+  //       if (
+  //         maxResumeCreations > userCreatedResumeCount &&
+  //         oldResume !== inputValue
+  //       ) {
+  //         userDetails && createResume(userDetails.id);
+  //       }
 
-//       router.push('/jobpost');
-//     }
-//   };
+  //       router.push('/jobpost');
+  //     }
+  //   };
 
   const stepStatuses: { [id: string]: StepStatus } = {
     '01': 'current'
   };
 
-//   React.useEffect(() => {
-//     setInputValue(oldResume);
-//   }, [oldResume]);
+  //   React.useEffect(() => {
+  //     setInputValue(oldResume);
+  //   }, [oldResume]);
 
   return (
     <>

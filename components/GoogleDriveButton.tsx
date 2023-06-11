@@ -1,5 +1,5 @@
-import React from 'react';
 import CenteredAlert from './ui/Alert/CenteredSingleAction';
+import React from 'react';
 
 interface GoogleDriveButtonProps {
   resume: string;

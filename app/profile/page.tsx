@@ -1,63 +1,62 @@
-"use client"
+'use client';
 
-import React, { FormEvent, ChangeEvent, useState } from 'react';
-// import { GetServerSidePropsContext } from 'next';
-import Router, { useRouter } from 'next/router';
-import va from '@vercel/analytics';
+// import { withAuth } from '@/utils/auth';
+import Menu from '@/components/ui/Menu/';
 import Notification from '@/components/ui/Notification/Notification';
-
 import { IPersonalInfo, StepStatus } from '@/types';
 // import { createEmptyPersonalInfo, useResume } from '@/contexts/ResumeContext';
 import { countries } from '@/utils/countries';
-// import { withAuth } from '@/utils/auth';
-import Menu from '@/components/ui/Menu/';
 // import { useUser } from '@/utils/useUser';
 import { getMaxResumeCreationsByPlan } from '@/utils/plans';
+import va from '@vercel/analytics';
+// import { GetServerSidePropsContext } from 'next';
+import Router, { useRouter } from 'next/router';
+import React, { FormEvent, ChangeEvent, useState } from 'react';
 
 // export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 //   return await withAuth(ctx);
 // };
 
 export default function Profile() {
-//   const {
-//     createResume,
-//     savePersonalInfo,
-//     personalInfo: storedPersonalInfo
-//   } = useResume();
-//   const { userDetails, subscription } = useUser();
-//   const router = useRouter();
+  //   const {
+  //     createResume,
+  //     savePersonalInfo,
+  //     personalInfo: storedPersonalInfo
+  //   } = useResume();
+  //   const { userDetails, subscription } = useUser();
+  //   const router = useRouter();
 
-//   const [personalInfo, setPersonalInfo] = React.useState<IPersonalInfo>(
-//     createEmptyPersonalInfo
-//   );
+  //   const [personalInfo, setPersonalInfo] = React.useState<IPersonalInfo>(
+  //     createEmptyPersonalInfo
+  //   );
 
-//   const planName = subscription?.prices?.products?.name || 'Free';
-//   const maxResumeCreations = getMaxResumeCreationsByPlan(planName);
-//   const userCreatedResumeCount = userDetails?.resume_created_count || 0;
+  //   const planName = subscription?.prices?.products?.name || 'Free';
+  //   const maxResumeCreations = getMaxResumeCreationsByPlan(planName);
+  //   const userCreatedResumeCount = userDetails?.resume_created_count || 0;
   const [show, setShow] = useState(false);
 
-//   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
-//     event?.preventDefault();
-//     if (
-    //   personalInfo.fName.trim() === '' ||
-    //   personalInfo.lName.trim() === '' ||
-    //   personalInfo.email.trim() === '' ||
-    //   personalInfo.phone.trim() === ''
-    // ) {
-    //   setShow(true);
-    // } else {
-    //   if (maxResumeCreations > userCreatedResumeCount) {
-    //     router.push('/results');
-    //   } else {
-    //     const msg =
-    //       `You've reached your resume creation limit, consider subscribe or upgrade your plan for more resume creations. The ${planName} plan has ${maxResumeCreations} resume creations.` as string;
-    //     Router.push({
-    //       pathname: '/plans',
-    //       query: { message: msg }
-    //     });
-    //   }
-    // }
-//   };
+  //   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+  //     event?.preventDefault();
+  //     if (
+  //   personalInfo.fName.trim() === '' ||
+  //   personalInfo.lName.trim() === '' ||
+  //   personalInfo.email.trim() === '' ||
+  //   personalInfo.phone.trim() === ''
+  // ) {
+  //   setShow(true);
+  // } else {
+  //   if (maxResumeCreations > userCreatedResumeCount) {
+  //     router.push('/results');
+  //   } else {
+  //     const msg =
+  //       `You've reached your resume creation limit, consider subscribe or upgrade your plan for more resume creations. The ${planName} plan has ${maxResumeCreations} resume creations.` as string;
+  //     Router.push({
+  //       pathname: '/plans',
+  //       query: { message: msg }
+  //     });
+  //   }
+  // }
+  //   };
 
   const handleChange = (
     event: ChangeEvent<
@@ -70,13 +69,13 @@ export default function Profile() {
     setShow(false);
   };
 
-//   const handleSave = (): void => {
-//     savePersonalInfo(personalInfo);
-//   };
+  //   const handleSave = (): void => {
+  //     savePersonalInfo(personalInfo);
+  //   };
 
-//   React.useEffect(() => {
-//     setPersonalInfo((prev) => ({ ...prev, ...storedPersonalInfo }));
-//   }, [storedPersonalInfo]);
+  //   React.useEffect(() => {
+  //     setPersonalInfo((prev) => ({ ...prev, ...storedPersonalInfo }));
+  //   }, [storedPersonalInfo]);
 
   const stepStatuses: { [id: string]: StepStatus } = {
     '01': 'complete',
@@ -122,7 +121,7 @@ export default function Profile() {
                   type="text"
                   name="fName"
                   id="first-name"
-                //   value={personalInfo.fName}
+                  //   value={personalInfo.fName}
                   onChange={handleChange}
                   autoComplete="given-name"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -142,7 +141,7 @@ export default function Profile() {
                   type="text"
                   name="lName"
                   id="last-name"
-                //   value={personalInfo.lName}
+                  //   value={personalInfo.lName}
                   onChange={handleChange}
                   autoComplete="family-name"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -162,7 +161,7 @@ export default function Profile() {
                   type="text"
                   name="email"
                   id="email"
-                //   value={personalInfo.email}
+                  //   value={personalInfo.email}
                   onChange={handleChange}
                   autoComplete="email"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -182,7 +181,7 @@ export default function Profile() {
                   type="text"
                   name="linkedin"
                   id="linkedin"
-                //   value={personalInfo.linkedin}
+                  //   value={personalInfo.linkedin}
                   onChange={handleChange}
                   autoComplete="linkedin"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -202,7 +201,7 @@ export default function Profile() {
                   type="tel"
                   name="phone"
                   id="phone"
-                //   value={personalInfo.phone}
+                  //   value={personalInfo.phone}
                   onChange={handleChange}
                   autoComplete="tel"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -221,7 +220,7 @@ export default function Profile() {
                   type="text"
                   name="portfolio"
                   id="portfolio"
-                //   value={personalInfo.portfolio}
+                  //   value={personalInfo.portfolio}
                   onChange={handleChange}
                   autoComplete="portfolio"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -240,7 +239,7 @@ export default function Profile() {
                   type="text"
                   name="website"
                   id="website"
-                //   value={personalInfo.website}
+                  //   value={personalInfo.website}
                   onChange={handleChange}
                   autoComplete="website"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -259,7 +258,7 @@ export default function Profile() {
                   type="text"
                   name="city"
                   id="city"
-                //   value={personalInfo.city}
+                  //   value={personalInfo.city}
                   onChange={handleChange}
                   autoComplete="address-level2"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -279,7 +278,7 @@ export default function Profile() {
                   type="text"
                   name="region"
                   id="region"
-                //   value={personalInfo.region}
+                  //   value={personalInfo.region}
                   onChange={handleChange}
                   autoComplete="address-level1"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -299,7 +298,7 @@ export default function Profile() {
                   type="text"
                   name="postalcode"
                   id="postal-code"
-                //   value={personalInfo.postalcode}
+                  //   value={personalInfo.postalcode}
                   onChange={handleChange}
                   autoComplete="postal-code"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -318,7 +317,7 @@ export default function Profile() {
                   id="country"
                   name="country"
                   onChange={handleChange}
-                //   value={personalInfo.country}
+                  //   value={personalInfo.country}
                   autoComplete="country-name"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 >
